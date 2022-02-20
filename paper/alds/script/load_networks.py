@@ -5,7 +5,6 @@ from __future__ import print_function
 import os
 import sys
 
-
 # change working directory to src
 from IPython import get_ipython
 import experiment
@@ -24,13 +23,13 @@ if "paper/alds/script" in folder:
 # %% define a few parameters
 
 # experiment file for which to retrieve networks
-FILE = "paper/alds/param/cifar/retrain/resnet20.yaml"
+FILE = "paper/alds/param/voc/prune/deeplabv3_resnet50.yaml"
 
 # specific network to retrieve
 # check out parameter file for available methods.
 METHOD_REF = "ReferenceNet"  # unpruned network
 METHOD = "ALDSNet"  # our method
-TARGET_PR = 0.5  # get the target prune ratio
+TARGET_PR = 0.12  # get the target prune ratio
 N_IDX = 0  # repetition index (0,1,2)
 
 

@@ -102,11 +102,9 @@ class VOCSegmentation2011(torchvision.datasets.SBDataset):
 
 class VOCSegmentation2012(torchvision.datasets.VOCSegmentation):
     """VOCSegmentation with augmented training data.
-
     This is the standard VOC segmentation data set but training is augmented
     with the data from
     https://www.dropbox.com/s/oeu149j8qtbs1x0/SegmentationClassAug.zip?dl=0
-
     To use this dataset you should download the zip-file from the dropbox link
     and place it in the folder "file_dir". The rest is handled automatically.
     """
@@ -183,14 +181,11 @@ class VOCSegmentation2012(torchvision.datasets.VOCSegmentation):
 class VOC_C_Base(ABC):  # pylint: disable=C0103
     # pylint: disable=E1101,E0203
     """This is a corrupted Pascal VOC dataset.
-
     It can be used in a multiple-inheritance scenario for both VOC2011 and
     VOC2012 (see below for usage).
-
     Corruptions are the same as from the ImageNet-C/CIFAR-C datasets but
     generalized to any dataset using the pip package "imagecorruptions as
     described here:
-
     https://github.com/bethgelab/imagecorruptions
     """
 
@@ -222,7 +217,6 @@ class VOC_C_Base(ABC):  # pylint: disable=C0103
 
     def __init__(self, *args, **kwargs):
         """Initialize it as if it was a regular VOCSegmentation2011 dataset.
-
         Then generate the corrupted images if necessary and point to those.
         """
         super().__init__(*args, **kwargs)

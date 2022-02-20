@@ -41,6 +41,19 @@ def deeplabv3_resnet50(num_classes):
         seg_models.deeplabv3_resnet50(num_classes=num_classes, aux_loss=True)
     )
 
+def deeplabv3_resnet50_new(num_classes, pretrained = False):
+    """Return torchvision deeplabv3_resnet50 and wrap it in SingleOutNet."""
+    return SingleOutNet(
+        torch.hub.load('pytorch/vision:v0.8.0', 'deeplabv3_resnet50', pretrained=pretrained)
+    )
+
+def deeplabv3_mobilenet_v3_large(num_classes, pretrained = False):
+    """Return torchvision deeplabv3_resnet50 and wrap it in SingleOutNet."""
+    return SingleOutNet(
+        #torch.hub.load('pytorch/vision:v0.8.0', 'deeplabv3_mobilenet_v3_large', pretrained=pretrained)
+        seg_models.deeplabv3_mobilenet_v3_large(num_classes=num_classes, aux_loss=True)
+
+    )
 
 def deeplabv3_resnet101(num_classes):
     """Return torchvision deeplabv3_resnet101 and wrap it in SingleOutNet."""
