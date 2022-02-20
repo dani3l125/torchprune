@@ -170,8 +170,8 @@ class VOCSegmentation2012(torchvision.datasets.VOCSegmentation):
 
         # now reassign images and masks file list
         self.images = [os.path.join(image_dir, x + ".jpg") for x in file_names]
-        self.masks = [os.path.join(mask_dir, x + ".png") for x in file_names]
-        assert len(self.images) == len(self.masks)
+        self.targets = [os.path.join(mask_dir, x + ".png") for x in file_names]
+        assert len(self.images) == len(self.targets)
 
         # remember some of the args
         self.file_dir = file_dir
@@ -253,7 +253,7 @@ class VOC_C_Base(ABC):  # pylint: disable=C0103
             os.path.join(self._corruption_img_dir, os.path.split(img)[1])
             for img in self.images
         ]
-        assert len(self.images) == len(self.masks)
+        assert len(self.images) == len(self.targets)
 
     def _generate_corrupted_data(self):
         """Generate the corrupted data and store everything as jpg."""
